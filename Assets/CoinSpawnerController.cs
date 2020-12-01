@@ -19,7 +19,7 @@ public class CoinSpawnerController : MonoBehaviour
     Gizmos.DrawLine(start, end);
   }
 
-  public void SpawnCoin(int column)
+  public void SpawnCoin(int column, Color color)
   {
     var spawnPosition = transform.position;
     spawnPosition.x += -((columns / 2.0f) - 0.5f) + column;
@@ -31,5 +31,6 @@ public class CoinSpawnerController : MonoBehaviour
     }
 
     spawnedCoin.transform.position = spawnPosition;
+    spawnedCoin.GetComponent<SpriteRenderer>().color = color;
   }
 }

@@ -12,6 +12,9 @@ public class BoardSelectionController : MonoBehaviour
   public GameObject coinPrefab;
   public CoinSpawnerController coinSpawner;
   public Board board;
+  public Color player1Color = Color.red;
+  public Color player2Color = Color.yellow;
+  public int currentPlayer = 1;
   int selectedColumn;
 
 
@@ -30,6 +33,9 @@ public class BoardSelectionController : MonoBehaviour
           coinPosition.Value.Item2 - (board.rows / 2.0f) + 0.5f,
           0
         );
+        coinInstance.GetComponent<SpriteRenderer>().color = currentPlayer == 1 ? player1Color : player2Color;
+        currentPlayer = currentPlayer == 1 ? 2 : 1;
+        coinSpawner.SpawnCoin(coinPosition.Value.Item1, currentPlayer == 1 ? player1Color : player2Color);
       }
     }
   }
