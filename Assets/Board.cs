@@ -21,10 +21,9 @@ public class Board : MonoBehaviour
   public GameObject cell;
   public CoinInstantiator coinInstantiator;
   CellStatus[,] gameBoard;
-
-  private void Update()
+  
+  private void printBoard()
   {
-    return;
     var print = "";
     foreach (var row in Enumerable.Range(0, rows))
     {
@@ -39,7 +38,6 @@ public class Board : MonoBehaviour
 
     Debug.Log("---------------------");
     print.Split('\n').ToList().ForEach(x => Debug.Log(x));
-
   }
 
   private void Start()
