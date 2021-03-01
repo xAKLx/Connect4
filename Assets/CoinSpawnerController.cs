@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Spawns coins on top of the border to give a visual feedback of where the coin will be inserted
 public class CoinSpawnerController : MonoBehaviour
 {
   [Min(1)]
