@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum CellStatus
 {
@@ -53,6 +54,16 @@ public class Board : MonoBehaviour
         gameBoard[column, row] = CellStatus.Empty;
       }
     }
+  }
+
+  private void Update()
+  {
+    if (inWinScreen && (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.KeypadEnter)))
+    {
+      inWinScreen = false;
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
   }
 
   private void OnValidate()
