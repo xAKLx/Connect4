@@ -21,7 +21,9 @@ public class Board : MonoBehaviour
   public GameObject cell;
   public WinScreenController winScreenController;
   public CoinInstantiator coinInstantiator;
+  public CoinSpawnerController coinSpawnerController;
   CellStatus[,] gameBoard;
+  public static bool inWinScreen = false;
 
   private void printBoard()
   {
@@ -107,6 +109,8 @@ public class Board : MonoBehaviour
     )
     {
       winScreenController.ShowWinner(cellStatus == CellStatus.Player1 ? 1 : 2);
+      inWinScreen = true;
+      coinSpawnerController.RemoveCoin();
     }
   });
 

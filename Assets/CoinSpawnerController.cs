@@ -22,6 +22,7 @@ public class CoinSpawnerController : MonoBehaviour
 
   public void SpawnCoin(int column, Color color)
   {
+    if (Board.inWinScreen) return;
     var spawnPosition = transform.position;
     spawnPosition.x += -((columns / 2.0f) - 0.5f) + column;
 
@@ -33,5 +34,14 @@ public class CoinSpawnerController : MonoBehaviour
 
     spawnedCoin.transform.position = spawnPosition;
     spawnedCoin.GetComponent<SpriteRenderer>().color = color;
+  }
+
+  public void RemoveCoin()
+  {
+    if (null == spawnedCoin) return;
+
+    Destroy(spawnedCoin);
+    spawnedCoin = null;
+
   }
 }

@@ -10,6 +10,7 @@ public class BoardSelectionColumnController : MonoBehaviour
 
   private void OnMouseEnter()
   {
+    if(Board.inWinScreen) return;
     coinSpawner.SpawnCoin(column, boardSelectionController.currentPlayer == 1 ? boardSelectionController.player1Color : boardSelectionController.player2Color);
     boardSelectionController.OnSelectColumn(column);
   }

@@ -23,6 +23,7 @@ public class BoardSelectionController : MonoBehaviour
 
   private void Update()
   {
+    if (Board.inWinScreen) return;
     if (Input.GetMouseButtonUp(0))
     {
       var coinPosition = board.AddCoin(selectedColumn, currentPlayer == 1 ? CellStatus.Player1 : CellStatus.Player2);
