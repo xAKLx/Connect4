@@ -19,9 +19,10 @@ public class Board : MonoBehaviour
   [Min(1)]
   public int rows = 4;
   public GameObject cell;
+  public WinScreenController winScreenController;
   public CoinInstantiator coinInstantiator;
   CellStatus[,] gameBoard;
-  
+
   private void printBoard()
   {
     var print = "";
@@ -105,7 +106,7 @@ public class Board : MonoBehaviour
       )
     )
     {
-      Debug.Log($"WINNER {column}, {row}");
+      winScreenController.ShowWinner(cellStatus == CellStatus.Player1 ? 1 : 2);
     }
   });
 
