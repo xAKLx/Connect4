@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,7 +82,6 @@ public class Board : MonoBehaviour
 
   public Vector2Int? AddCoin(int column, CellStatus type)
   {
-    Debug.Log($"Column {column}");
     foreach (var row in Enumerable.Range(0, rows))
     {
       if (gameBoard[column, row] == CellStatus.Empty && type != CellStatus.Empty)
